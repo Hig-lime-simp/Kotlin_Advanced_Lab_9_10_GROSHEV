@@ -1,3 +1,5 @@
+package exs_7
+
 interface Movable {
     var speed: Int
     val model: String
