@@ -1,3 +1,5 @@
+package exs_7
+
 class Hero(
     val name: String
 ) {

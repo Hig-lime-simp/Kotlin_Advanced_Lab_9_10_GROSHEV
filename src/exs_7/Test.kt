@@ -1,3 +1,5 @@
+package exs_7
+
 class Person {
     var age: Int = 18
         set(value) {
@@ -8,7 +10,7 @@ class Person {
 }
 
 fun main() {
-//    val person = Person()
+//    val person = exs_7.Person()
 //
 //    println(person.age) // 18
 //    person.age = 45
