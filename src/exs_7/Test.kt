@@ -1,12 +1,10 @@
 package exs_7
 
-class Person {
-    var age: Int = 18
-        set(value) {
-            if (value > 0 && value < 110) {
-                field = value
-            }
-        }
+class Person(name: String) : Human(name) {
+    override var age: Int = 1
+    override fun hello() {
+        println("My name is $name")
+    }
 }
 data class Item(
     val id: Int,
@@ -17,6 +15,10 @@ data class Item(
         return "Id предмета: $id\nИмя: $name\nКоличество: $quantity\n"
     }
 }
+abstract class Human(val name: String) {
+    abstract var age: Int
+    abstract fun hello()
+}
 
 fun main() {
 //    val person = exs_7.Person()
@@ -26,11 +28,11 @@ fun main() {
 //    println(person.age) // 45
 //    person.age = -345
 //    println(person.age) // 45 (не изменилось из-за проверки в setter)
-val sword = Item(id = 1, name = "Sword", quantity = 1)
-val betterSword = sword.copy(quantity = 2)
-println(sword.toString())
-println(betterSword.toString())
-val (id, name, quantity) = betterSword
-println("Id предмета: $id\nИмя: $name\nКоличество: $quantity\n")
+//val sword = Item(id = 1, name = "Sword", quantity = 1)
+//val betterSword = sword.copy(quantity = 2)
+//println(sword.toString())
+//println(betterSword.toString())
+//val (id, name, quantity) = betterSword
+//println("Id предмета: $id\nИмя: $name\nКоличество: $quantity\n")
 
 }
