@@ -1,4 +1,4 @@
-package exs_7
+package example
 
 interface Movable {
     var speed: Int

@@ -1,4 +1,7 @@
-package Galaxy_Outpost_Manager
+import modules.ResearchLab
+import modules.EnergyGenerator
+import resources.OutpostResource
+import resources.ResourceManager
 
 fun main() {
     val manager = ResourceManager()

@@ -1,4 +1,4 @@
-package exs_7
+package characters
 
 class Hero(
     val name: String

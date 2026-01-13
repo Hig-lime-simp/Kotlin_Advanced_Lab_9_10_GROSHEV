@@ -1,4 +1,7 @@
-package Galaxy_Outpost_Manager
+package modules
+
+import resources.OutpostResource
+import resources.ResourceManager
 
 class EnergyGenerator : OutpostModule(name = "Генератор энергии") {
     override fun performAction(manager: ResourceManager) {

@@ -1,4 +1,4 @@
-package exs_7
+package example
 
 class Person(name: String) : Human(name) {
     override var age: Int = 1
@@ -21,14 +21,14 @@ abstract class Human(val name: String) {
 }
 
 fun main() {
-//    val person = exs_7.Person()
+//    val person = .example.Person()
 //
 //    println(person.age) // 18
 //    person.age = 45
 //    println(person.age) // 45
 //    person.age = -345
 //    println(person.age) // 45 (не изменилось из-за проверки в setter)
-//val sword = Item(id = 1, name = "Sword", quantity = 1)
+//val sword = example.Item(id = 1, name = "Sword", quantity = 1)
 //val betterSword = sword.copy(quantity = 2)
 //println(sword.toString())
 //println(betterSword.toString())

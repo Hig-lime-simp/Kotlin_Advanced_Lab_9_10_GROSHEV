@@ -1,4 +1,4 @@
-package Galaxy_Outpost_Manager
+package resources
 
 class ResourceManager {
     private val resources = mutableListOf<OutpostResource>()

@@ -1,5 +1,6 @@
-package Galaxy_Outpost_Manager
+package modules
 
+import resources.ResourceManager
 class ResearchLab : OutpostModule(name = "Исследовательская лаборатория") {
     override fun performAction(manager: ResourceManager) {
         val minerals = manager.get("Minerals")

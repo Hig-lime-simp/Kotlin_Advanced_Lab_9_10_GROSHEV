@@ -1,5 +1,6 @@
-package Galaxy_Outpost_Manager
+package actions
 
+import resources.ResourceManager
 interface ModuleAction {
     fun execute(manager: ResourceManager)
 }

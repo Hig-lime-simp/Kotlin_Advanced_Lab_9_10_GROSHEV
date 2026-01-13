@@ -1,4 +1,4 @@
-package Galaxy_Outpost_Manager
+package resources
 
 data class OutpostResource(
     val id: Int,

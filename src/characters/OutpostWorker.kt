@@ -1,4 +1,4 @@
-package Galaxy_Outpost_Manager
+package characters
 
 class OutpostWorker(
     val name: String
