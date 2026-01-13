@@ -8,6 +8,15 @@ class Person {
             }
         }
 }
+data class Item(
+    val id: Int,
+    val name: String,
+    val quantity: Int
+){
+    override fun toString(): String {
+        return "Id предмета: $id\nИмя: $name\nКоличество: $quantity\n"
+    }
+}
 
 fun main() {
 //    val person = exs_7.Person()
@@ -17,5 +26,11 @@ fun main() {
 //    println(person.age) // 45
 //    person.age = -345
 //    println(person.age) // 45 (не изменилось из-за проверки в setter)
+val sword = Item(id = 1, name = "Sword", quantity = 1)
+val betterSword = sword.copy(quantity = 2)
+println(sword.toString())
+println(betterSword.toString())
+val (id, name, quantity) = betterSword
+println("Id предмета: $id\nИмя: $name\nКоличество: $quantity\n")
 
 }
