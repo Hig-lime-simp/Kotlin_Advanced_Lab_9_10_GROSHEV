@@ -5,6 +5,80 @@
 ## Структура проекта
 Проект содержит примеры реализации продвинутых механизмов ООП, а также пояснения к ключевым
 концепциям.
+## Геттеры и сеттеры
+1. Кастомные сеттеры с валидацией данных
+2. Вычисляемые геттеры для динамических свойств
+3. Приватные сеттеры для инкапсуляции
+
+Пример:
+```kotlin
+var maxEnergy: Int = 100
+    private set
+
+var energy: Int = maxEnergy
+    set(value) {
+        field = value.coerceIn(0, maxEnergy)
+    }
+```
+## Инкапсуляция
+   Принцип ООП,скрывает внутреннее состояние объекта и защищает данные от некорректных изменений. 
+
+Пример:
+```kotlin
+class OutpostWorker(val name: String) {
+var energy: Int = 100
+set(value) {
+field = value.coerceIn(0..100)
+}
+```
+## Data-классы
+   Специальные классы с автоматической генерацией полезных методов
+
+Пример:
+```kotlin
+data class OutpostResource(
+    val id: Int,
+    val name: String,
+    var amount: Int
+) {
+    override fun toString(): String {
+    return "Ресурс: $id | Имя: $name | Количество: $amount"
+    }
+}
+```
+
+## Абстрактные классы
+   Базовые классы, которые нельзя создать напрямую, описывают общую логику и структуру.
+
+Пример:
+```kotlin
+abstract class OutpostModule(
+    val name: String,
+    var level: Int = 1
+) {
+    fun upgrade() {
+        level++
+        println("$name повышен до уровня $level")
+    }
+}
+```
+## Интерфейсы
+   Контракты поведения
+
+Пример:
+```kotlin
+interface ModuleAction {
+    fun execute(manager: ResourceManager)
+}
+
+interface Movable {
+    var speed: Int
+    fun move()
+    fun stop() {
+        println("Останавливаемся...")
+    }
+}
+```
 ## Как запустить проект
 1. Клонируйте репозиторий:
 ```bash
@@ -13,6 +87,6 @@ git https://github.com/Hig-lime-simp/Kotlin_Advanced_Lab_9_10_GROSHEV.git
 1. Откройте проект в IntelliJ IDEA.
 2. Запустите любой пример через контекстное меню или напрямую из `main`.
 ## Автор
-Грошев Никита
+Грошев Никита, also @higaaa, chairs/5
 ## Лицензия
 Проект создан в учебных целях.
