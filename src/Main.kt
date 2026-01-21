@@ -1,8 +1,17 @@
 import modules.ResearchLab
 import modules.EnergyGenerator
+import modules.ModuleResult
 import resources.OutpostResource
 import resources.ResourceManager
-
+fun handleModuleResult(result: ModuleResult){
+    when (result){
+        is ModuleResult.Succes -> println("Succes ${result.messege}")
+        is ModuleResult.ResourseProduced -> println("Maiden: ${result.resoursename} + ${result.amount}")
+        is ModuleResult.NotEnoughResourses ->  println("You dont have ${result.resourseName}." +
+                "Need ${result.required}, have: ${result.avaible}")
+        is ModuleResult.Error -> println("ERROE: ${result.reason}")
+    }
+}
 fun main() {
     val manager = ResourceManager()
     val minerals = OutpostResource(id = 1, name = "Minerals", amount = 300)
@@ -21,8 +30,11 @@ fun main() {
     val generator = EnergyGenerator()
     val lab = ResearchLab()
 
-    generator.performAction(manager)
-    lab.performAction(manager)
+    val geenratorResult = generator.performAction(manager)
+    val labResult = lab.performAction(manager)
+
+    handleModuleResult(geenratorResult)
+    handleModuleResult(labResult)
 
     println()
     manager.printAll()
