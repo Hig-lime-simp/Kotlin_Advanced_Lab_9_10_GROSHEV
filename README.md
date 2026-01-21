@@ -157,4 +157,4 @@ git https://github.com/Hig-lime-simp/Kotlin_Advanced_Lab_9_10_GROSHEV.git
 Грошев Никита, also @higaaa, chairs/5
 ---
 ## Лицензия
-Проект создан в учебных целях.
+Проект создан в учебных целях
