@@ -12,11 +12,27 @@ fun handleResult(result: NetworkResult){
             println("Успех: ${result.data}")
         }
         is NetworkResult.Error -> {
-            println("Ошибка ${result.code}: ${result.massege}"
+            println("Ошибка ${result.code}: ${result.massege}")
         }
         NetworkResult.Loading -> {
             println("Loading...")
         }
+    }
+}
+sealed class OrderStatus {
+    object Created: OrderStatus()
+    object Paid: OrderStatus()
+    object Shipped: OrderStatus()
+    data class Cancelled(val resson: String) : OrderStatus()
+
+}
+fun handleOrder(status: OrderStatus){
+    when (status){
+        OrderStatus.Created -> println("Заказ создан")
+        OrderStatus.Paid -> println("Заказ оплачен")
+        OrderStatus.Shipped -> println("Заказ отправлен")
+        is OrderStatus.Cancelled -> println("Отменен: ${status.resson}")
+
     }
 }
 fun main() {
@@ -27,4 +43,9 @@ fun main() {
     handleResult(success)
     handleResult(error)
     handleResult(loading)
+    handleOrder(OrderStatus.Created)
+    handleOrder(OrderStatus.Paid)
+    handleOrder(OrderStatus.Shipped)
+    handleOrder(OrderStatus.Cancelled("Нет товара на складе"))
+
 }
