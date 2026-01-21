@@ -9,6 +9,7 @@ class OutpostWorker(
     var energy: Int = maxEnergy
         set(value) {
             field = value.coerceIn(0, maxEnergy)
+
         }
     var mood: Int = 50
         get() = field + (energy / 10)
