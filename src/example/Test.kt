@@ -35,4 +35,14 @@ fun main() {
 //val (id, name, quantity) = betterSword
 //println("Id предмета: $id\nИмя: $name\nКоличество: $quantity\n")
 
+    val max = InstantMessenger("MAX")
+//    val photoCamera = PhotoCamera()
+    val yotaPhone = SmartPhone("YotaPhone", max)
+    yotaPhone.sendTextMessage()
+    yotaPhone.sendVideoMessage()
+
+    counter = 1
+    counter = 5
+
+
 }
