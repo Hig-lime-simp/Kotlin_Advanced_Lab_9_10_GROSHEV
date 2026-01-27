@@ -1,3 +1,4 @@
+import example.Messneger
 import modules.ResearchLab
 import modules.EnergyGenerator
 import modules.ModuleResult
@@ -12,10 +13,22 @@ fun handleModuleResult(result: ModuleResult){
         is ModuleResult.Error -> println("ERROE: ${result.reason}")
     }
 }
+object SystemLogger{
+    init {
+        println("SystemLogger инициализация")
+    }
+
+    fun log(message: String){
+        println("[LOG] $message")
+    }
+}
+val logger by lazy {
+    SystemLogger
+}
 fun main() {
     val manager = ResourceManager()
-    val minerals = OutpostResource(id = 1, name = "Minerals", amount = 300)
-    val gas = OutpostResource(id = 2, name = "Gas", amount = 100)
+    val minerals = OutpostResource(id = 1, name = "Minerals", amountInit = 300)
+    val gas = OutpostResource(id = 2, name = "Gas", amountInit = 100)
 //
 //    manager.add(minerals)
 //    manager.add(gas)
@@ -24,8 +37,8 @@ fun main() {
 //    val bonus = minerals.copy(amount = minerals.amount + 50)
 //    println("Копия минералов с бонусом: $bonus")
 
-    manager.add(OutpostResource(id = 1, name = "Minerals", amount = 120))
-    manager.add(OutpostResource(id = 2, name = "Gas", amount = 40))
+    manager.add(OutpostResource(id = 1, name = "Minerals", amountInit = 120))
+    manager.add(OutpostResource(id = 2, name = "Gas", amountInit = 40))
 
     val generator = EnergyGenerator()
     val lab = ResearchLab()
@@ -38,4 +51,8 @@ fun main() {
 
     println()
     manager.printAll()
+
+    logger.log("Запуск базы")
+
+
 }
